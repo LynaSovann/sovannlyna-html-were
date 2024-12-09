@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sovannlyna-html-were-https-ingress
+  namespace: sovannlyna-html-were
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - sovannlyna-html-were.assessify.org
+      secretName: sovannlyna-html-were-secret-tls
+  rules:
+    - host: sovannlyna-html-were.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sovannlyna-html-were-service
+                port:
+                  number: 8345
