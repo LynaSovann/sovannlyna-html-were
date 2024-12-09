@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sovannlyna-html-were-deployment
+  labels:
+    app: sovannlyna-html-were
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sovannlyna-html-were
+  template:
+    metadata:
+      labels:
+        app: sovannlyna-html-were
+    spec:
+      containers:
+        - name: sovannlyna-html-were-container
+          image: pipejet/sovannlyna-html-were:0
+          ports:
+            - containerPort: 80
