@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sovannlyna-html-were-certificate
+  namespace: sovannlyna-html-were
+spec:
+  secretName: sovannlyna-html-were-secret-tls
+  commonName: sovannlyna-html-were.assessify.org
+  dnsNames:
+  - sovannlyna-html-were.assessify.org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
