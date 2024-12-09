@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: sovannlyna-html-were-container
-          image: pipejet/sovannlyna-html-were:0
+          image: pipejet/sovannlyna-html-were:1
           ports:
             - containerPort: 80
